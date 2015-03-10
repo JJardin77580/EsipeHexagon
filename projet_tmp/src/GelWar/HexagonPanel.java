@@ -1,6 +1,8 @@
 package GelWar;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Polygon;
 import java.util.HashMap;
 
 import hexalib.Hexalib.Direction;
@@ -11,12 +13,20 @@ public class HexagonPanel implements HexagonView {
 	private  Color color;
 	private int size;
 	private HashMap<Direction, Color> colorEdge= new HashMap<>();
-
+	private int cx[];
+	private int cy[];
 	@Override
 	public void setColor(Color color) {
 		this.color=color;
 	}
 
+	public void setCx( int ... cx){
+		this.cx=cx;
+
+	}
+	public void setCy(int ... cy){
+		this.cy=cy;
+	}
 	@Override
 	public void setEdge(Direction edge, Color color) {
 		colorEdge.put(edge, color);
@@ -30,22 +40,25 @@ public class HexagonPanel implements HexagonView {
 
 	@Override
 	public Color getColor() {
-		// TODO Auto-generated method stub
 		return this.color;
 	}
 
 	@Override
 	public Color getEdgeColot(Direction edge) {
-		// TODO Auto-generated method stub
 		return this.colorEdge.get(edge);
 	}
 
 	@Override
 	public int getSize() {
-		// TODO Auto-generated method stub
 		return this.size;
 	}
 
-
+	public void drawHex(Graphics2D g2) {
+		Polygon poly = new Polygon(cx,cy,6);
+		g2.setColor(this.color);
+		g2.fillPolygon(poly);
+		//g2.setColor(this.color);
+		//g2.drawPolygon(poly);
+	} 
 
 }

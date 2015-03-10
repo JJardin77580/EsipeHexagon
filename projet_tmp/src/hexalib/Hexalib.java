@@ -32,13 +32,10 @@ public interface Hexalib {
 
 		HexaModel<? extends T> model;
 		HexagonRenderer<? super T> renderer;
-
 		public HexaGridView(HexaModel<? extends T> model, HexagonRenderer<? super T> renderer) {
 			this.model=model;
 			this.renderer=renderer;
 		}
-
-
 
 		public T getDataForPixel(int x, int y) { return null; }
 	}
@@ -50,6 +47,8 @@ public interface Hexalib {
 		public Color getColor();
 		public Color getEdgeColot(Direction edge);
 		public int getSize();
+		public void setCx( int ... cx);
+		public void setCy(int ... cy);
 		
 	}
 
