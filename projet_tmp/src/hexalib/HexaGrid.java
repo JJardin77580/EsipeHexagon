@@ -56,5 +56,9 @@ public class HexaGrid<T> implements HexaModel<T> {
 	 observers.add(observer);
 
 	}
+	
+	public void setData(int q,int r,T value){
+		grid.put(new Coordinates(q, r), value);
+	}
 
 }

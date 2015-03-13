@@ -1,8 +1,8 @@
 package hexalib;
 
 public class Coordinates {
-	int q;
-	int r;
+	public int q;
+	public int r;
 	
 	public Coordinates(int q,int r) {
 		this.q=q;
@@ -10,10 +10,16 @@ public class Coordinates {
 		
 	}
 	
+	public int getx(){
+		return q;
+	}
+	
+	public int gety(){
+		return r;
+	}
 	@Override
 	public int hashCode() {
-		int premier=31 ;
-		return (((q ^ (q>>> 32)) + (r ^ (r >>> 32)))*premier);
+		return r - Integer.rotateLeft(q, 16);
 	}
 
 	@Override
