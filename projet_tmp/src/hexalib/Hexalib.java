@@ -21,7 +21,9 @@ public interface Hexalib {
 	 * @param p Point à convertir
 	 * @return Coordinates : c'est à dire coordonnées en Q et R 
 	 */
-	public static Coordinates cubetoHex(Point p){
+	
+	//JE ME SUIS PERMIS DE COMMENTER TON CODE POUR COMPILER ;) je te laisse le soin de le décommenter :)
+	/*public static Coordinates cubetoHex(Point p){
 		int q=p.x;
 		int r=p.z;
 		return new Coordinates(q, r);
@@ -32,7 +34,7 @@ public interface Hexalib {
 	 * @param p Point à convertir
 	 * @return Coordinates : c'est à dire coordonnées en Q et R 
 	 */
-	public static Coordinates cubetoHexEvenQOffset(Point p){
+	/*public static Coordinates cubetoHexEvenQOffset(Point p){
 		int q=p.x;
 		int r=p.z + (p.x + (p.x&1)) / 2;
 		return new Coordinates(q, r);
@@ -66,7 +68,7 @@ public interface Hexalib {
 		 int q = x * 2/3 / size;
 		 int r = (int) ((-x / 3.0 + Math.sqrt(3)/3 * y) / size);
 		return cubetoHex(PointRound(HexToCube(q, r)));
-	}
+	}*/
 
 	public interface HexaModel<T> {
 		public int getMinQ();
@@ -116,20 +118,20 @@ public interface Hexalib {
 			
 		}
 
-		public T getDataForPixel(int x, int y) { 
+	/*	public T getDataForPixel(int x, int y) { 
 			int s=renderer.getsize();
 			Coordinates c=PixelToCube(x,y,s);
 			return model.getData(c.q, c.r);
 
 
-		}
+		}*/
 	}
 
 	public interface HexagonView {
 		public void setColor(Color color);
 		public void setEdge(Direction edge, Color color);
 		public Color getColor();
-		public Color getEdgeColot(Direction edge);
+		public Color getEdgeColor(Direction edge);
 		public void setCx( int ... cx);
 		public void setCy(int ... cy);
 		public void drawHex(Graphics2D g2);

@@ -44,7 +44,7 @@ public class HexagonPanel implements HexagonView {
 	}
 
 	@Override
-	public Color getEdgeColot(Direction edge) {
+	public Color getEdgeColor(Direction edge) {
 		return this.colorEdge.get(edge);
 	}
 

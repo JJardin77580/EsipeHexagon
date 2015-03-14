@@ -22,41 +22,16 @@ public class HexaGrid<T> implements HexaModel<T> {
 		grid=new HashMap<>();
 		observers=new ArrayList<>();
 	}
-	@Override
-	public int getMinQ() {
-		return minQ;
-	}
-
-	@Override
-	public int getMaxQ() {
-	
-		return maxQ;
-	}
-
-	@Override
-	public int getMinR() {
-	
-		return minR;
-	}
-
-	@Override
-	public int getMaxR() {
-	
-		return maxR;
-	}
-
-	@Override
+	@Override public int getMinQ() {return minQ;}
+	@Override public int getMaxQ() {return maxQ;}
+	@Override public int getMinR() {return minR;}
+	@Override public int getMaxR() {return maxR;}
+	@Override 
 	public T getData(int q, int r) {
-		
 		return grid.get(new Coordinates(q, r));
 	}
-
 	@Override
-	public void addObserver(ModelObserver observer) {
-	 observers.add(observer);
-
-	}
-	
+	public void addObserver(ModelObserver observer) {observers.add(observer);}
 	public void setData(int q,int r,T value){
 		grid.put(new Coordinates(q, r), value);
 	}
