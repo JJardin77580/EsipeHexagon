@@ -14,12 +14,6 @@ public class Plateau extends JPanel implements MouseListener{
 	private final Hexalib.HexaGridView<Integer> hexagridView;
 	private final int hexagonSize;
 	
-	public enum hexagonType {
-		FOREST, PASTURE, FARMLAND, HILL, MOUNTAIN,DESERT, MARINA, SEA
-		
-		
-	;}
-
 	public Plateau(Hexalib.HexaGridView<Integer> hexagrid, int hexagonSize)
 	{
 		this.hexagonSize = hexagonSize;

@@ -4,6 +4,9 @@ import hexalib.HexaGrid;
 import hexalib.HexagonPanel;
 import hexalib.Hexalib.HexaGridView;
 
+import Pionneer.Hexagon.hexagonType;
+
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -16,10 +19,11 @@ public class Main {
 		int i=0;
 		for (int q=0;q<=7;q++) {
 			for (int r = 0; r <=7; r++) {
-				//System.out.println( "q="+q +" r="+r);
 				hexagonGrid.setData(q, r,i);
 				i++;
-				hexagridView.addHexagonView(q, r, new HexagonPanel());
+				Hexagon hexPan = new Hexagon(hexagonType.HILL,true);
+				hexagridView.addHexagonView(q, r, hexPan);
+				
 			}
 			
 		}
