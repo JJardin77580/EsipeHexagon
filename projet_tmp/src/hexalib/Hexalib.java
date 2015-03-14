@@ -45,12 +45,6 @@ public interface Hexalib {
 		return new Point(x,y,z);
 	}
 
-	public static Point HexToCubeEvenQOffset(int q,int r){
-		int x = q;
-		int z = r - (q + (q&1)) / 2;
-		int y = -x-z;
-		return new Point(x,y,z);
-	}
 
 	public static Point PointRound(Point p){
 		int rx = Math.round(p.x);
@@ -69,9 +63,9 @@ public interface Hexalib {
 	}
 	
 	public static Coordinates PixelToCube(int x,int y,int size){
-	    int q = x * 2/3 / size;
-	    int r = (int) ((-x / 3 + Math.sqrt(3)/3 * y) / size);
-	    return cubetoHexEvenQOffset(PointRound(new Point(q, -q-r, r)));
+		 int q = x * 2/3 / size;
+		 int r = (int) ((-x / 3.0 + Math.sqrt(3)/3 * y) / size);
+		return cubetoHex(PointRound(HexToCube(q, r)));
 	}
 
 	public interface HexaModel<T> {
@@ -103,6 +97,7 @@ public interface Hexalib {
 			hexaviews.put(new Coordinates(q, r), hexagonPanel);
 		}
 
+	
 		public HexagonView getHexagonView(int q,int r){
 			return hexaviews.get(new Coordinates(q, r));
 		}
@@ -118,13 +113,12 @@ public interface Hexalib {
 				}
 
 			}
-
+			
 		}
 
 		public T getDataForPixel(int x, int y) { 
 			int s=renderer.getsize();
-			int radius =  (int) (s * 0.8660254037844);
-			Coordinates c=PixelToCube(x,y,radius);
+			Coordinates c=PixelToCube(x,y,s);
 			return model.getData(c.q, c.r);
 
 
@@ -139,10 +133,12 @@ public interface Hexalib {
 		public void setCx( int ... cx);
 		public void setCy(int ... cy);
 		public void drawHex(Graphics2D g2);
+		
 	}
 
 	public interface HexagonRenderer<T> {
 		public void render(int q, int r, T data, HexagonView hexagonView);
 		public int getsize();
+		
 	}
 }

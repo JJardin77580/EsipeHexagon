@@ -13,6 +13,7 @@ public class HexagonPanel implements HexagonView {
 	private HashMap<Direction, Color> colorEdge= new HashMap<>();
 	private int cx[];
 	private int cy[];
+
 	@Override
 	public void setColor(Color color) {
 		this.color=color;

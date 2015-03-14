@@ -1,8 +1,8 @@
 package GelWar;
 
 import hexalib.Coordinates;
-import hexalib.HexaGrid;
 import hexalib.Hexalib;
+import hexalib.Hexalib.HexagonView;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -11,9 +11,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
+
 public class Plateau extends JPanel implements MouseListener{
-	private final int BSIZE = 6;
 	private final Hexalib.HexaGridView<Integer> hexagridView;
+
 	public Plateau( Hexalib.HexaGridView<Integer> hexagrid)
 	{
 		this.hexagridView=hexagrid;
@@ -22,21 +23,7 @@ public class Plateau extends JPanel implements MouseListener{
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D)g; 
 		super.paintComponent(g2);
-		/*for (int i=0;i<BSIZE;i++) {
-			for (int j=0;j<BSIZE;j++) {
-				HexagonPanel panelHexa= new HexagonPanel();
-				panelHexa.setColor(Color.blue);
-				panelHexa.setSize(60);
-				HexagonRender<Integer> hexa=new HexagonRender<>();
-				hexa.render(i, j,0, panelHexa);
-				panelHexa.drawHex(g2);
-			
-			}
-		} 
-		*/
 		hexagridView.DrawGrid(g2);
-
-
 
 	}
 
@@ -46,11 +33,11 @@ public class Plateau extends JPanel implements MouseListener{
 	
 			int x = e.getX();
 			int y = e.getY();
-			System.out.println(hexagridView.getDataForPixel(x, y));
+			System.out.println(hexagridView.getDataForPixel(x-Fenetre.offsetX, y-Fenetre.offsetY));
 			int s=30;
-			int radius =  (int) (s * 0.8660254037844);
-			Coordinates c=Hexalib.PixelToCube(x-50,y-50,radius);
+			Coordinates c=Hexalib.PixelToCube(x-Fenetre.offsetX,y-Fenetre.offsetY,s);
 			hexagridView.getHexagonView(c.q,c.r).setColor(Color.red);
+			System.out.println("q= "+ c.q + "r= "+ c.r);
 			repaint();
 	}
 
