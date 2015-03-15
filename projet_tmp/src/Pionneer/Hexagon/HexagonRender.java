@@ -1,10 +1,11 @@
-package Pionneer;
+package Pionneer.Hexagon;
 
+import Pionneer.Fenetre;
 import hexalib.Coordinates;
 import hexalib.Hexalib.HexagonRenderer;
 import hexalib.Hexalib.HexagonView;
 /**
- * Gère l'affichage de l'hexagone
+ * Gère l'affichage d'un hexagone
  * @author adrien
  *
  * @param <T>

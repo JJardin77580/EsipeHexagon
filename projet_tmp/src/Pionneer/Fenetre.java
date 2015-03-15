@@ -3,11 +3,16 @@ package Pionneer;
 import hexalib.Hexalib.HexaGridView;
 import java.awt.Container;
 import javax.swing.JFrame;
-
+/**
+ * Initialise un fenetre
+ * @author adrien
+ *
+ */
 public class Fenetre extends JFrame {
 	public static int offsetX=50;
 	public  static int offsetY=50;
 	private final int sizeHexagon = 30;
+	
 	
 	public Fenetre(HexaGridView<Integer> hexaview) {  
 		Plateau panel = new Plateau(hexaview,sizeHexagon);
@@ -17,10 +22,10 @@ public class Fenetre extends JFrame {
 		content.add(panel);
 		frame.setSize(700,700);
 		frame.setResizable(true);
-		frame.setLocationRelativeTo( null );
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true); 
 		frame.addMouseListener(panel);
-	
+		
 	}       
 	
 	

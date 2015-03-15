@@ -69,7 +69,12 @@ public interface Hexalib {
 		 int r = (int) ((-x / 3.0 + Math.sqrt(3)/3 * y) / size);
 		return cubetoHex(PointRound(HexToCube(q, r)));
 	}*/
-
+	/**
+	 * Grille comportant des hexagones.
+	 * @author adrien,jeoffrey
+	 *
+	 * @param <T>
+	 */
 	public interface HexaModel<T> {
 		public int getMinQ();
 		public int getMaxQ();
@@ -78,7 +83,7 @@ public interface Hexalib {
 		public T getData(int q, int r);
 		public void addObserver(ModelObserver observer);
 	}
-
+	
 	public interface ModelObserver {
 		public void dataChanged(int q, int r);
 	}
@@ -113,9 +118,7 @@ public interface Hexalib {
 						views.drawHex(g2);
 					}
 				}
-
 			}
-			
 		}
 
 	/*	public T getDataForPixel(int x, int y) { 
