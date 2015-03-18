@@ -50,7 +50,7 @@ public class HexagonPanel implements HexagonView {
 		g2.drawPolygon(poly);
 		if((center!=null)&&(dataString!=null)){
 			g2.setFont(new Font("arial",1 , 20));
-			g2.drawString(dataString, center.x, center.y);
+			g2.drawString(dataString, (int)center.x,(int)center.y);
 		}
 	}
 

@@ -27,7 +27,7 @@ public class HexagonRender implements HexagonRenderer<DataHexagon> {
 		int height=(int) (Math.sqrt(3)/2.0*width);
 		int x;
 		int y;
-		 x = (int) (3.0/4 *width*q);
+		 x = (int) (3.0/4.0 *width*q);
 		 y= (int) (1.0/2.0 * height *q +height*r);
 		 x+=Fenetre.offsetX;
 		 y+=Fenetre.offsetY;

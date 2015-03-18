@@ -43,7 +43,7 @@ public class Plateau extends JPanel implements MouseListener{
 			hexagrid.setData(c.q, c.r, p2);
 			//hexagridView.getModel().setData(q, c.r, p2);
 			//hexagridView.getHexagonView(c.q,c.r).setColor(Color.red);
-			//System.out.println("q= "+ c.q + "r= "+ c.r);
+			System.out.println("q= "+ c.q + "r= "+ c.r);
 			repaint();
 	}
 

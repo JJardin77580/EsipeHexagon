@@ -2,11 +2,11 @@ package hexalib;
 
 public class Point {
 
-	public final int x;
-	public final int y;
-	public final int z;
+	public final double x;
+	public final double y;
+	public final double z;
 	
-	public Point(int x,int y,int z) {
+	public Point(double x,double y,double z) {
 		this.x=x;
 		this.y=y;
 		this.z=z;

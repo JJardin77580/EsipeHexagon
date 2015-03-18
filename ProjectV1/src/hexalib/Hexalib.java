@@ -23,8 +23,8 @@ public interface Hexalib {
 	 * @return Coordinates : c'est à dire coordonnées en Q et R 
 	 */
 	public static Coordinates cubetoHex(Point p){
-		int q=p.x;
-		int r=p.z;
+		int q=(int)p.x;
+		int r=(int)p.z;
 		return new Coordinates(q, r);
 	}
 
@@ -33,39 +33,34 @@ public interface Hexalib {
 	 * @param p Point à convertir
 	 * @return Coordinates : c'est à dire coordonnées en Q et R 
 	 */
-	public static Coordinates cubetoHexEvenQOffset(Point p){
-		int q=p.x;
-		int r=p.z + (p.x + (p.x&1)) / 2;
-		return new Coordinates(q, r);
-	}
 
-	public static Point HexToCube(int q,int r){
-		int x = q;
-		int  z = r;
-		int y = -x-z;
+	public static Point HexToCube(double q,double r){
+		double x =  q;
+		double  z = r;
+		double y = -x-z;
 		return new Point(x,y,z);
 	}
 
 
 	public static Point PointRound(Point p){
-		int rx = Math.round(p.x);
-		int ry = Math.round(p.y);
-		int rz = Math.round(p.z);
-		int x_diff = Math.abs(rx - p.x);
-		int y_diff = Math.abs(ry - p.y);
-		int z_diff = Math.abs(rz - p.z);
+		double rx = Math.round(p.x);
+		double ry = Math.round(p.y);
+		double rz = Math.round(p.z);
+		double x_diff = Math.abs(rx - p.x);
+		double y_diff = Math.abs(ry - p.y);
+		double z_diff = Math.abs(rz - p.z);
 		if ((x_diff > y_diff) && (x_diff > z_diff))
 			rx = -ry-rz;
 		else if (y_diff > z_diff)
 			ry = -rx-rz;
 		else
 			rz = -rx-ry;
-		return new Point(rx, ry, rz);
+		return new Point((rx), (ry), (rz));
 	}
 	
 	public static Coordinates PixelToCube(int x,int y,int size){
-		 int q = x * 2/3 / size;
-		 int r = (int) ((-x / 3.0 + Math.sqrt(3)/3 * y) / size);
+		 double q = (x * 2.0/3.0 / size*1.0);
+		 double r = ((-x*1.0 / 3.0 + Math.sqrt(3)/3.0 * y*1.0) / size*1.0);
 		return cubetoHex(PointRound(HexToCube(q, r)));
 	}
 
@@ -109,12 +104,16 @@ public interface Hexalib {
 		}
 
 		public void DrawGrid(Graphics2D g2){
+			int lim=0;
 			for (int q=model.getMinQ();q<=model.getMaxQ();q++) {
 				{
 					for(int r=model.getMinR();r<=model.getMaxR();r++){
+						lim=q+r;
+						if((lim>=model.getMinQ())&&(lim<=model.getMaxQ())){
 						HexagonView views=hexaviews.get(new Coordinates(q, r));
 						renderer.render(q, r, model.getData(q, r),views);
 						views.drawHex(g2);
+						}
 					}
 				}
 
