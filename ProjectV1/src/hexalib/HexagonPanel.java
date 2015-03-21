@@ -38,7 +38,7 @@ public class HexagonPanel implements HexagonView {
 		return this.color;
 	}
 	@Override
-	public Color getEdgeColot(Direction edge) {
+	public Color getEdgeColor(Direction edge) {
 		return this.colorEdge.get(edge);
 	}
 	public void drawHex(Graphics2D g2) {

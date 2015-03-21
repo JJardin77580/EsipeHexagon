@@ -135,7 +135,7 @@ public interface Hexalib {
 		public void setColor(Color color);
 		public void setEdge(Direction edge, Color color);
 		public Color getColor();
-		public Color getEdgeColot(Direction edge);
+		public Color getEdgeColor(Direction edge);
 		public void setCx( int ... cx);
 		public void setCy(int ... cy);
 		public void drawHex(Graphics2D g2);
