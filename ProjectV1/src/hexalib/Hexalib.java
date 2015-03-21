@@ -5,16 +5,51 @@ import java.awt.Graphics2D;
 import java.util.HashMap;
 import java.util.List;
 
-
-
 // use axial coordinate (r, q)
 // see http://www.redblobgames.com/grids/hexagons/
 public interface Hexalib {
 	public enum Direction {
 		NORTH, NORTH_EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, NORTH_WEST
 		;
-		public int neighborQ(int q, int r) { return 0; }
-		public int neighborR(int q, int r) { return 0; }
+		public int neighborQ(int q, int r) {
+            switch(this) {
+            case NORTH:
+                return q;
+            case NORTH_EAST:
+                return q+1;
+            case SOUTH_EAST:
+                return q+1;
+            case SOUTH:
+                return q;
+            case SOUTH_WEST:
+                return q-1;
+            case NORTH_WEST:
+                return q-1;
+            default : 
+            	return q; 
+            }
+}
+
+
+public int neighborR(int q, int r) {
+            switch(this) {
+            case NORTH:
+                return r-1;
+            case NORTH_EAST:
+                return r-1;
+            case SOUTH_EAST:
+                return r;
+            case SOUTH:
+                return r+1;
+            case SOUTH_WEST:
+                return r+1;
+            case NORTH_WEST:
+                return r;
+            default :
+            	return r;
+            }
+}
+		
 	}
 
 	/**

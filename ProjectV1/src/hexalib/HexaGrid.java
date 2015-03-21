@@ -61,4 +61,11 @@ public class HexaGrid<T> implements HexaModel<T> {
 		grid.put(new Coordinates(q, r), value);
 	}
 
+	public void notifyAllObserver(int q, int r ){
+		for (ModelObserver modelObserver : observers) {
+			modelObserver.dataChanged(q, r);
+		}
+		
+	}
+	
 }
