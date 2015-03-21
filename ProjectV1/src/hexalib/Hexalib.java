@@ -134,9 +134,9 @@ public interface Hexalib {
 	}
 
 	public interface HexagonView {
-		public void setColor(Color color);
 		public void setEdge(Direction edge, Color color);
 		public Color getColor();
+		public void setColor(Color color);
 		public Color getEdgeColor(Direction edge);
 		public void setCx( int ... cx);
 		public void setCy(int ... cy);

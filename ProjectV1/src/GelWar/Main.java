@@ -2,8 +2,6 @@ package GelWar;
 
 import java.awt.Color;
 
-import GoleConquest.Player;
-import GoleConquest.Hexagon.DataHexagon;
 import hexalib.HexaGrid;
 import hexalib.HexagonPanel;
 import hexalib.Hexalib.HexaGridView;
@@ -13,7 +11,7 @@ public class Main {
 		
 	public static void main(String[] args) {
 		
-		HexaGrid<DataHexagon> hexaGrid=new HexaGrid<>(-3, -3, 3, 3);
+		HexaGrid<DataHexagon> hexaGrid=new HexaGrid<>(-1, -1, 1, 1);
 		HexagonRender render=new HexagonRender();
 		render.setSize(30);
 		

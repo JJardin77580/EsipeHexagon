@@ -12,8 +12,6 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 
-import GoleConquest.Player;
-import GoleConquest.Hexagon.DataHexagon;
 
 @SuppressWarnings("serial")
 public class Plateau extends JPanel implements MouseListener{

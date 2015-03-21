@@ -1,6 +1,5 @@
 package GelWar;
 
-import GoleConquest.Hexagon.DataHexagon;
 import hexalib.Coordinates;
 import hexalib.Hexalib.HexagonRenderer;
 import hexalib.Hexalib.HexagonView;
