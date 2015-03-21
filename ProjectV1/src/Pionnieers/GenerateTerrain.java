@@ -23,7 +23,7 @@ public class GenerateTerrain {
 	
 	public int getCase() {
 		if(cases.size() < 1)
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("caca");
 		Random rand = new Random();
 		int index = rand.nextInt(cases.size());
 		int value = cases.get(index).getValeur();
@@ -33,13 +33,8 @@ public class GenerateTerrain {
 			cases.get(index).removeOne();
 			cases.remove(index);
 		}
-		
 		return value;
 	}
-
-	
-	
-	
 }
 
 

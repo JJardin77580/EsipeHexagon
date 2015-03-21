@@ -26,7 +26,6 @@ public class Main {
 		GenerateTerrain terrain = new GenerateTerrain();
 
 		int lim=0;
-		int incr=1;
 		for (int q=min;q<=max;q++) {
 			for (int r = min; r <=max; r++) {
 				lim=q+r;
@@ -34,8 +33,6 @@ public class Main {
 				if((q==min)||(q==max)||(r==min)||(r==max)||(lim==max)||(lim==min)){
 					data.setType(TypeHex.SEA);
 				} else if((lim>=hexagonGrid.getMinQ())&&(lim<=hexagonGrid.getMaxQ())){
-					System.out.println(incr);
-					incr++;
 					int getCase = terrain.getCase();
 					data.setType(TypeHex.values()[getCase]);
 					if(TypeHex.values()[getCase] != TypeHex.DESERT)
@@ -50,28 +47,31 @@ public class Main {
 
 	
 	private static int getJeton() {
-		if(jetons.size() < 0)
+		if(jetons.size() < 1)
 			throw new IndexOutOfBoundsException();
 		Random rand = new Random();
 		int index = rand.nextInt(jetons.size());
-		if(jetons.get(index).getNombre() >= 1)
+		int value = jetons.get(index).getValeur();
+		if(jetons.get(index).getNombre() > 1)
 			jetons.get(index).removeOne();
-		else
+		else {
+			jetons.get(index).removeOne();
 			jetons.remove(index);
-		return index;
+		}
+		return value;
 	}
 
 	private static void initJetons() {
-		int quantité=1;
-		for(int nombre = 1 ; nombre < 13 ; nombre++){
-			if(nombre == 1 || nombre == 12)
-				quantité = 1;
+		int quantite=1;
+		for(int nombre = 2 ; nombre <= 12 ; nombre++){
+			if(nombre == 2 || nombre == 12)
+				quantite = 1;
 			else
-				quantité = 2;
-			jetons.add(new Jeton(quantité,nombre));
+				quantite = 2;
+			if(nombre != 7)
+				jetons.add(new Jeton(quantite,nombre));
 		}
 	}
-
 }
 
 
@@ -79,7 +79,7 @@ public class Main {
  * 
  * TO-DO
  * 
- * ajouter les ports a l'aléatoire
+ * ajouter les ports et l'eau a l'aléatoire
  * Dirty method jeton
  * Implémentation des classes Road, town, colony
  * 

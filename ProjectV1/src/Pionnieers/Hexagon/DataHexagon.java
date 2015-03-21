@@ -30,7 +30,7 @@ public class DataHexagon {
 		}
 	}
 	
-	public void setJeton(int jeton){
+	public void setJeton(Integer jeton){
 		this.jeton = jeton;
 	}
 	public int getJeton(){

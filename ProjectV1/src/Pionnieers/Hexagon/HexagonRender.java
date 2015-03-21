@@ -53,6 +53,8 @@ public class HexagonRender implements HexagonRenderer<DataHexagon> {
 		hexagonView.setCx(cx);
 		hexagonView.setCy(cy);
 		hexagonView.setCenter(new Point(x, y, 0));
+		if(data.getJeton() != 0)
+			hexagonView.setDataString(String.valueOf(data.getJeton()));
 		hexagonView.setColor(data.getColor());
 	}
 }

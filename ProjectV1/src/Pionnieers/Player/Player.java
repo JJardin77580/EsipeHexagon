@@ -10,7 +10,13 @@ public class Player {
 	private ArrayList<Town> town;
 	private ArrayList<Colony> colony;
 	private ArrayList<Integer> listRessources;
-	public enum Ressources{BOIS,BLE,ARGILE,MOUTON,PIERRE};
+	public enum Ressources{BOIS(0),BLE(0),ARGILE(0),MOUTON(0),PIERRE(0);
+		private int quantity;
+
+	Ressources(int quantity){this.quantity = quantity;}
+	public int getQuantity(){return this.quantity;}
+	public void setQuantity(int quantity){this.quantity = quantity;}
+	};
 	
 
 	public Player(String name, Color color) {

@@ -32,7 +32,6 @@ public class Plateau extends JPanel implements MouseListener{
 	private final HexaGridView<DataHexagon> hexagridView;
 	private final HexaGrid<DataHexagon> hexagrid;
 	private final MenuDroite menu;
-	private Random rand;
 
 	public Plateau(HexaGridView<DataHexagon> hexaGridView,HexaGrid<DataHexagon> hexaGrid)
 	{
@@ -40,13 +39,12 @@ public class Plateau extends JPanel implements MouseListener{
 		this.hexagrid=hexaGrid;
 		setBackground(Color.WHITE);
 		menu = new MenuDroite();
-
-		
 	}
 	
 	
 	public int tirageDe(){
-		return 0;//rand.nextInt(6)+1;
+		Random rand = new Random();
+		return rand.nextInt(6)+1;
 	}
 	
 	public void paintComponent(Graphics g){
@@ -72,7 +70,10 @@ public class Plateau extends JPanel implements MouseListener{
 			hexagrid.setData(c.q, c.r, p1);
 			System.out.println("q= "+ c.q + "r= "+ c.r);
 			menu.HUD();
-			tirageDe();//doit normalement se faire avec un clic sur un bouton
+		}
+		if(SwingUtilities.isRightMouseButton(e)){
+			System.out.println(tirageDe());
+			
 		}
 		
 		repaint();
