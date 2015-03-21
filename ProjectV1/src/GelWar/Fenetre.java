@@ -15,9 +15,9 @@ public class Fenetre extends JFrame {
 
 	public static int offsetX=500;
 	public  static int offsetY=400;
-	public Fenetre(HexaGridView<DataHexagon> hexaview,HexaGrid<DataHexagon> hexagrid) {             
+	public Fenetre(HexaGridView<DataHexagon> hexaview,HexaGrid<DataHexagon> hexagrid,Player[] player) {             
 	
-		Plateau panel = new Plateau(hexaview,hexagrid);	 
+		Plateau panel = new Plateau(hexaview,hexagrid,player);	 
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		JFrame frame = new JFrame("GelWAR");
 		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
