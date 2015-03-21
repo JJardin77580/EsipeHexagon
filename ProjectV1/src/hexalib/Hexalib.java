@@ -36,12 +36,16 @@ public interface Hexalib {
 
 	public static Point HexToCube(double q,double r){
 		double x =  q;
-		double  z = r;
+		double z = r;
 		double y = -x-z;
 		return new Point(x,y,z);
 	}
 
-
+	/**
+	 * créer un arrondi permettant de déterminer l'hexagone qui a été sélectionné parla sours
+	 * @param p
+	 * @return
+	 */
 	public static Point PointRound(Point p){
 		double rx = Math.round(p.x);
 		double ry = Math.round(p.y);
@@ -116,9 +120,7 @@ public interface Hexalib {
 						}
 					}
 				}
-
 			}
-			
 		}
 
 		

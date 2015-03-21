@@ -35,7 +35,7 @@ public class Plateau extends JPanel implements MouseListener{
 	public void mouseClicked(MouseEvent e) {
 	
 			int x = e.getX();
-			int y = e.getY();
+			int y = e.getY()-30;
 			//System.out.println(hexagridView.getDataForPixel(x-Fenetre.offsetX, y-Fenetre.offsetY));
 			int s=30;
 			Coordinates c=Hexalib.PixelToCube(x-Fenetre.offsetX,y-Fenetre.offsetY,s);
