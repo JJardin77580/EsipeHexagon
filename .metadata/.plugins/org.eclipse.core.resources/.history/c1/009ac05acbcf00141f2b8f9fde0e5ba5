@@ -1,0 +1,60 @@
+package Pionnieers.Hexagon;
+
+import hexalib.Hexalib.HexagonView;
+
+import java.awt.Color;
+
+import Pionnieers.Player;
+
+
+public class DataHexagon {
+	private Integer identifiant;
+	private Player player;
+	private
+	private int type;
+	public enum Type {FOREST, PASTURE, FARMLAND, HILL, MOUNTAIN,DESERT, MARINA, SEA;};
+	
+	/*public Hexagon(HexagonType type) {
+		this.type = type.ordinal();
+		switch(type){
+			case FOREST:   setColor(Color.green); break;
+			case PASTURE:  setColor(Color.green.darker()); break;
+			case FARMLAND: setColor(Color.orange.darker().darker()); break;
+			case HILL:     setColor(Color.magenta); break;
+			case MOUNTAIN: setColor(Color.white); break;
+			case DESERT:   setColor(Color.yellow); break;
+			case MARINA:   setColor(Color.cyan); break;
+			case SEA:      setColor(Color.blue); break;
+		}*/
+		
+	public DataHexagon(int identifiant,Player player, Type type) {
+		this.identifiant = identifiant;
+		this.setPlayer(player);
+		this.type = type.ordinal();
+		switch(type){
+		case FOREST:   HexagonView.setColor(Color.green); break;
+		case PASTURE:  setColor(Color.green.darker()); break;
+		case FARMLAND: setColor(Color.orange.darker().darker()); break;
+		case HILL:     setColor(Color.magenta); break;
+		case MOUNTAIN: setColor(Color.white); break;
+		case DESERT:   setColor(Color.yellow); break;
+		case MARINA:   setColor(Color.cyan); break;
+		case SEA:      setColor(Color.blue); break;
+	}
+	}
+
+	public Integer getScore() {
+		return identifiant;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+	
+	
+	
+}

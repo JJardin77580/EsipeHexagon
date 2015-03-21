@@ -1,0 +1,29 @@
+package Pionnieers;
+
+import java.awt.Color;
+import java.util.ArrayList;
+
+public class Player {
+	private final String name;
+	private final Color color;
+	private ArrayList<Integer> road;
+	private ArrayList<Integer> town;
+	private ArrayList<Integer> colonie;
+	
+
+	public Player(String name, Color color) {
+		this.name=name;
+		this.color=color;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public Color getColor(){
+		return this.color;
+	}
+	
+	
+
+}

@@ -1,0 +1,29 @@
+zpackage Pionnieers.Hexagon;
+
+import Pionnieers.Player;
+
+
+public class DataHexagon {
+	private Integer identifiant;
+	private Player player;
+
+	public DataHexagon(int identifiant,Player player) {
+		this.identifiant = identifiant;
+		this.setPlayer(player);
+	}
+
+	public Integer getScore() {
+		return identifiant;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+	
+	
+	
+}

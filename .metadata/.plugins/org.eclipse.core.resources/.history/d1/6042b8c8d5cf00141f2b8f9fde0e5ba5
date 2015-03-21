@@ -1,0 +1,27 @@
+package Pionnieers;
+
+public class Jeton {
+	private int nombreRestant;
+	private int valeur;
+	
+	public Jeton(int nombreRestant, int valeur) {
+		this.nombreRestant = nombreRestant;
+		this.valeur = valeur;
+	}
+
+	public int getNombreRestant() {
+		return nombreRestant;
+	}
+
+	public void setNombreRestant(int nombreRestant) {
+		this.nombreRestant = nombreRestant;
+	}
+
+	public int getValeur() {
+		return valeur;
+	}
+
+	public void setValeur(int valeur) {
+		this.valeur = valeur;
+	}
+}
