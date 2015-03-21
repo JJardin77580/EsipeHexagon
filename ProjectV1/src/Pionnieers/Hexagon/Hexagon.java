@@ -8,23 +8,12 @@ import java.util.HashMap;
 import hexalib.Hexalib.Direction;
 import hexalib.Hexalib.HexagonView;
 import hexalib.Point;
-/**
- * Représente l'aspect visuel d'un hexagone.
- * chaque hexagone comporte :
- *  - un type (bois, montagne, etc...)
- *  - un numéro (qui sera utilisé avec les dés pour l'approvisionnement des ressources)
- * 
- * @author adrien
- *
- * @param <T>
- */
+
 public class Hexagon implements HexagonView{
 	private Color color;
 	private HashMap<Direction, Color> colorEdge= new HashMap<>();
 	private int cx[];
 	private int cy[];
-	
-
 
 	@Override
 	public void setColor(Color color) {
@@ -52,23 +41,22 @@ public class Hexagon implements HexagonView{
 		g2.setColor(Color.BLACK);
 		g2.drawPolygon(poly);
 	}
-
 	@Override
 	public Color getEdgeColor(Direction edge) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void setDataString(String s) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public void setCenter(Point center) {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import Pionnieers.Hexagon.DataHexagon;
 import Pionnieers.Hexagon.DataHexagon.TypeHex;
@@ -30,7 +31,6 @@ public class Plateau extends JPanel implements MouseListener{
 	private static final long serialVersionUID = 1L;
 	private final HexaGridView<DataHexagon> hexagridView;
 	private final HexaGrid<DataHexagon> hexagrid;
-	private final ArrayList<Jeton> jetons;
 	private final MenuDroite menu;
 	private Random rand;
 
@@ -40,32 +40,13 @@ public class Plateau extends JPanel implements MouseListener{
 		this.hexagrid=hexaGrid;
 		setBackground(Color.WHITE);
 		menu = new MenuDroite();
-		jetons = new ArrayList<Jeton>();
-		int quantité=1;
-		for(int nombre = 1 ; nombre < 13 ; nombre++){
-			if(nombre == 1 || nombre == 12)
-				quantité = 1;
-			else
-				quantité = 2;
-			jetons.add(new Jeton(quantité,nombre));
-		}
+
+		
 	}
 	
 	
 	public int tirageDe(){
-		return rand.nextInt(6)+1;
-	}
-	
-	public int getJeton(){
-		if(jetons.size() < 0)
-			throw new IllegalStateException();
-		int index = rand.nextInt(jetons.size());
-		if(jetons.get(index).getNombre() >= 1)
-			jetons.get(index).removeOne();
-		else
-			jetons.remove(index);
-		return index;
-		
+		return 0;//rand.nextInt(6)+1;
 	}
 	
 	public void paintComponent(Graphics g){
@@ -75,26 +56,25 @@ public class Plateau extends JPanel implements MouseListener{
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		hexagridView.DrawGrid(g2);
 		menu.afficherMenu(g);
-		
 	}
 	
 	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		int x = e.getX();
-		int y = e.getY()-30;
-		//System.out.println(hexagridView.getDataForPixel(x-Fenetre.offsetX, y-Fenetre.offsetY));
-		int s=30;
-		Coordinates c=Hexalib.PixelToCube(x-Fenetre.offsetX,y-Fenetre.offsetY,s);
-		DataHexagon p1= new DataHexagon();
-		p1.setType(TypeHex.MOUNTAIN);
-		hexagrid.setData(c.q, c.r, p1);
-		//hexagridView.getModel().setData(q, c.r, p2);
-		//hexagridView.getHexagonView(c.q,c.r).setColor(Color.red);
-		System.out.println("q= "+ c.q + "r= "+ c.r);
-		menu.HUD();
-		tirageDe();//doit normalement se faire avec un clic sur un bouton
+		if(SwingUtilities.isLeftMouseButton(e)){
+			int x = e.getX();
+			int y = e.getY()-30;
+			int s=30;
+			Coordinates c=Hexalib.PixelToCube(x-Fenetre.offsetX,y-Fenetre.offsetY,s);
+			DataHexagon p1= new DataHexagon();
+			p1.setType(TypeHex.MOUNTAIN);
+			hexagrid.setData(c.q, c.r, p1);
+			System.out.println("q= "+ c.q + "r= "+ c.r);
+			menu.HUD();
+			tirageDe();//doit normalement se faire avec un clic sur un bouton
+		}
+		
 		repaint();
 	}
 	

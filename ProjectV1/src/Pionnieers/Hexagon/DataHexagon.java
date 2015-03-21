@@ -8,9 +8,13 @@ public class DataHexagon {
 	private int type;
 	private int jeton;
 
-	public enum TypeHex {FOREST, PASTURE, FARMLAND, HILL, MOUNTAIN,DESERT, MARINA, SEA;};
-
-
+	public enum TypeHex {FOREST(4), PASTURE(4), FARMLAND(4), HILL(3), MOUNTAIN(3),DESERT(1), MARINA(9), SEA(4);
+		private final int capacity;
+	
+		TypeHex(int capacity){this.capacity=0;}
+		public int getCapacity(){return this.capacity;}
+	
+	};
 
 	public void setType(TypeHex type){
 		this.type = type.ordinal();
@@ -28,6 +32,9 @@ public class DataHexagon {
 	
 	public void setJeton(int jeton){
 		this.jeton = jeton;
+	}
+	public int getJeton(){
+		return jeton;
 	}
 
 	public int getType() {

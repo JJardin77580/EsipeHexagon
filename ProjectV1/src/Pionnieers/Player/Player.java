@@ -8,13 +8,32 @@ public class Player {
 	private final Color color;
 	private ArrayList<Road> road;
 	private ArrayList<Town> town;
-	private ArrayList<Colony> colonie;
-	private int nbPoints;
+	private ArrayList<Colony> colony;
+	private ArrayList<Integer> listRessources;
+	public enum Ressources{BOIS,BLE,ARGILE,MOUTON,PIERRE};
 	
 
 	public Player(String name, Color color) {
 		this.name=name;
 		this.color=color;
+		listRessources = new ArrayList<Integer>();
+	}
+	
+	public void addTown(){
+		town.add(new Town());
+	}
+	
+	public void addRoad(){
+		road.add(new Road());
+	}
+	
+	public void addColony(){
+		colony.add(new Colony());
+	}
+
+	public void getRessources(Ressources res){
+		int index = res.ordinal();
+		listRessources.set(index,listRessources.get(index)+1);
 	}
 	
 	public String getName(){
@@ -26,7 +45,7 @@ public class Player {
 	}
 	
 	public int getNbPoints(){
-		return nbPoints;
+		return colony.size()+(town.size()*2);
 	}
 	
 	

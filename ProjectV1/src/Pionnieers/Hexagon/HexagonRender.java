@@ -54,6 +54,5 @@ public class HexagonRender implements HexagonRenderer<DataHexagon> {
 		hexagonView.setCy(cy);
 		hexagonView.setCenter(new Point(x, y, 0));
 		hexagonView.setColor(data.getColor());
-		hexagonView.setDataString(q + "," + r);
 	}
 }

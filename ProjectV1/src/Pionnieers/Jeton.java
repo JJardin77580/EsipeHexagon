@@ -1,9 +1,14 @@
 package Pionnieers;
 
 public class Jeton {
+	
 	private int nombre;
 	private int valeur;
-	
+	/**
+	 * 
+	 * @param nombre
+	 * @param valeur
+	 */
 	public Jeton(int nombre, int valeur) {
 		this.nombre = nombre;
 		this.valeur = valeur;
