@@ -10,8 +10,8 @@ public class DataHexagon {
 
 	public enum TypeHex {FOREST(4), PASTURE(4), FARMLAND(4), HILL(3), MOUNTAIN(3),DESERT(1), MARINA(9), SEA(4);
 		private final int capacity;
-	
-		TypeHex(int capacity){this.capacity=0;}
+
+		TypeHex(int capacity){this.capacity = capacity;}
 		public int getCapacity(){return this.capacity;}
 	
 	};

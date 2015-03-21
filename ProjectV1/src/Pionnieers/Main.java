@@ -26,15 +26,16 @@ public class Main {
 		GenerateTerrain terrain = new GenerateTerrain();
 
 		int lim=0;
+		int incr=1;
 		for (int q=min;q<=max;q++) {
 			for (int r = min; r <=max; r++) {
 				lim=q+r;
 				DataHexagon data = new DataHexagon();
 				if((q==min)||(q==max)||(r==min)||(r==max)||(lim==max)||(lim==min)){
 					data.setType(TypeHex.SEA);
-				} else {
-					/*Random rand = new Random();
-					int randNum = rand.nextInt(6);*/
+				} else if((lim>=hexagonGrid.getMinQ())&&(lim<=hexagonGrid.getMaxQ())){
+					System.out.println(incr);
+					incr++;
 					int getCase = terrain.getCase();
 					data.setType(TypeHex.values()[getCase]);
 					if(TypeHex.values()[getCase] != TypeHex.DESERT)
@@ -78,7 +79,7 @@ public class Main {
  * 
  * TO-DO
  * 
- * Aire de jeu aléatoire
+ * ajouter les ports a l'aléatoire
  * Dirty method jeton
  * Implémentation des classes Road, town, colony
  * 
