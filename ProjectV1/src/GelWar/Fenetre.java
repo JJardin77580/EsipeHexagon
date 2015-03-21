@@ -10,6 +10,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import GoleConquest.Hexagon.DataHexagon;
+
 public class Fenetre extends JFrame {
 
 	public static int offsetX=500;

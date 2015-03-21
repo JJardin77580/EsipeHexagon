@@ -2,6 +2,8 @@ package GelWar;
 
 import java.awt.Color;
 
+import GoleConquest.Player;
+import GoleConquest.Hexagon.DataHexagon;
 import hexalib.HexaGrid;
 import hexalib.HexagonPanel;
 import hexalib.Hexalib.HexaGridView;
