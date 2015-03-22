@@ -38,6 +38,9 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 	private final MenuDroite menu;
 	private final Player[] players;
 	private final Label aide;
+	private int activePlayer;
+	private boolean debutPartie;
+	private DataHexagon modifiedHexa;
 
 	public Plateau(HexaGridView<DataHexagon> hexaGridView,HexaGrid<DataHexagon> hexaGrid,Player[] players)
 	{
@@ -47,6 +50,8 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 		menu = new MenuDroite();
 		this.players = players;
 		aide = new Label("le joueur 1 doit poser 2 colonies", 10, 20);
+		debutPartie = true;
+		modifiedHexa = new DataHexagon();
 	}
 
 	public int tirageDe(){
@@ -68,6 +73,12 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(SwingUtilities.isLeftMouseButton(e)){
+			if(debutPartie == true){
+				
+			}
+				
+			
+			
 			int x = e.getX();
 			int y = e.getY()-30;
 			int s=30;
@@ -82,12 +93,11 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 
 		}
 		if(SwingUtilities.isMiddleMouseButton(e)){
-			int playerActive = -1;
 			for(int i = 0 ; i < players.length ; i++){
 				if(players[i].isActive())
-					playerActive = i;
+					activePlayer = i;
 			}
-			if(playerActive == -1)
+			if(activePlayer == -1)
 			{
 				int num1 = tirageDe();
 				int num2 = tirageDe();
@@ -95,34 +105,41 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 				System.out.println("tirage des dés : " + num1 + "," + num2 + " -> " + total);
 			}
 			else
-				System.out.println("ce n'est pas le moment de lancer les dés ! (" + players[playerActive].getName() + " joue!)");
+				System.out.println("ce n'est pas le moment de lancer les dés ! (" + players[activePlayer].getName() + " joue!)");
 		}
 		repaint();
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		Direction dir = Direction.NORTH;
 		switch(e.getKeyChar()){
 		case '7':
+			dir = Direction.NORTH;
 			System.out.println(Direction.NORTH.name());
 		break;
 		case '9':
+			dir = Direction.NORTH_EAST;
 			System.out.println(Direction.NORTH_EAST.name());
 		break;
 		case '6':
+			dir = Direction.SOUTH_EAST;
 			System.out.println(Direction.SOUTH_EAST.name());
 		break;
 		case '3':
+			dir = Direction.SOUTH;
 			System.out.println(Direction.SOUTH.name());
 		break;
 		case '1':
+			dir = Direction.SOUTH_WEST;
 			System.out.println(Direction.SOUTH_WEST.name());
 		break;
 		case '4':
+			dir = Direction.NORTH_WEST;
 			System.out.println(Direction.NORTH_WEST.name());
 		break;
 		}
-
+		modifiedHexa.setDirection(dir);
 	}
 
 

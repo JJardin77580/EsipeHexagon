@@ -59,8 +59,6 @@ public class HexagonPanel implements HexagonView {
 				g2.setColor(colorEgde);
 
 			}
-
-
 			switch(d) {
 			case NORTH:
 

@@ -38,24 +38,12 @@ public class Hexagon implements HexagonView{
 		Polygon poly = new Polygon(cx,cy,6);
 		g2.setColor(this.color);
 		g2.fillPolygon(poly);
-		g2.setColor(Color.BLACK);
+		g2.setColor(Color.black);
 		g2.drawPolygon(poly);
 	}
-	@Override
-	public Color getEdgeColor(Direction edge) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void setDataString(String s) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void setCenter(Point center) {
-		// TODO Auto-generated method stub
-		
-	}
+	@Override public Color getEdgeColor(Direction edge) {return null;}
+	@Override public void setDataString(String s) {}
+	@Override public void setCenter(Point center) {}
 
 
 

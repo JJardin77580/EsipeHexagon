@@ -10,6 +10,7 @@ public class DataHexagon {
 	private int type;
 	private int jeton;
 	private final Color[] edgeColor;
+	private int direction;
 
 	public enum TypeHex {FOREST(4), PASTURE(4), FARMLAND(4), HILL(3), MOUNTAIN(3),DESERT(1), MARINA(9), SEA(4);
 	private final int capacity;
@@ -22,6 +23,7 @@ public class DataHexagon {
 		edgeColor = new Color[6];
 		for(int i = 0 ; i < edgeColor.length ; i++)
 			edgeColor[i] = Color.black;
+		direction = 0;
 	}
 
 	public void setType(TypeHex type){
@@ -37,9 +39,12 @@ public class DataHexagon {
 			case SEA:      color = Color.blue; break;
 		}
 	}
+	public void setDirection(Direction dir) {
+		direction = dir.ordinal();
+	}
 	
-	public void setEdgeColor(Direction dir,Color color) {
-		edgeColor[dir.ordinal()] = color;
+	public void setEdgeColor(Color color) {
+		edgeColor[direction] = color;
 	}
 
 	public Color getEdgeColor(Direction dir) {
