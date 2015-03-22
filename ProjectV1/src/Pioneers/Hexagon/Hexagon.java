@@ -44,6 +44,7 @@ public class Hexagon implements HexagonView{
 	@Override public Color getEdgeColor(Direction edge) {return null;}
 	@Override public void setDataString(String s) {}
 	@Override public void setCenter(Point center) {}
+	@Override public void drawPoint(Graphics2D g2, int x, int y, Color c) {}
 
 
 

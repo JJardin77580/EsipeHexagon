@@ -38,9 +38,8 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 	private final MenuDroite menu;
 	private final Player[] players;
 	private final Label aide;
+	private final Label des;
 	private int activePlayer;
-	private boolean debutPartie;
-	private DataHexagon modifiedHexa;
 
 	public Plateau(HexaGridView<DataHexagon> hexaGridView,HexaGrid<DataHexagon> hexaGrid,Player[] players)
 	{
@@ -49,9 +48,9 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 		setBackground(Color.WHITE);
 		menu = new MenuDroite();
 		this.players = players;
-		aide = new Label("le joueur 1 doit poser 2 colonies", 10, 20);
-		debutPartie = true;
-		modifiedHexa = new DataHexagon();
+		aide = new Label("tirez les dés pour commencer une partie (clic molette)", 10, 20);
+		des = new Label("", 10, 50);
+		this.activePlayer = -1;
 	}
 
 	public int tirageDe(){
@@ -66,6 +65,7 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		hexagridView.DrawGrid(g2);
 		aide.drawText(g);
+		des.drawText(g);
 		menu.afficherMenu(g);
 	}
 
@@ -73,73 +73,67 @@ public class Plateau extends JPanel implements MouseListener,KeyListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(SwingUtilities.isLeftMouseButton(e)){
-			if(debutPartie == true){
-				
-			}
-				
-			
-			
 			int x = e.getX();
 			int y = e.getY()-30;
 			int s=30;
 			Coordinates c=Hexalib.PixelToCube(x-Fenetre.offsetX,y-Fenetre.offsetY,s);
-			DataHexagon p1= new DataHexagon();
-			p1.setColor(hexagrid.getData(c.q, c.r).getColor());
-			p1.setEdgeColor(Direction.NORTH, Color.YELLOW);
-			hexagrid.setData(c.q, c.r, p1);
-			System.out.println("q= "+ c.q + "r= "+ c.r);
+			
+			if(activePlayer != -1){
+				players[activePlayer].addRoad(hexagrid,c.q,c.r);
+				players[activePlayer].setActive(false);
+				activePlayer++;
+				if(activePlayer >= players.length){
+					aide.setText("Veuillez lancer les dés pour un nouveau tour");
+				}
+				else {
+					aide.setText("c'est a " + players[activePlayer].getName() + " de jouer");
+					players[activePlayer].setActive(true);
+				}
+			}
+
 		}
 		if(SwingUtilities.isRightMouseButton(e)){
 
 		}
 		if(SwingUtilities.isMiddleMouseButton(e)){
-			for(int i = 0 ; i < players.length ; i++){
-				if(players[i].isActive())
-					activePlayer = i;
-			}
-			if(activePlayer == -1)
-			{
+			if(activePlayer >= players.length || activePlayer == -1){
+				activePlayer = 0;
 				int num1 = tirageDe();
 				int num2 = tirageDe();
 				int total = num1 + num2;
 				System.out.println("tirage des dés : " + num1 + "," + num2 + " -> " + total);
+				des.setText("tirage des dés : " + num1 + "," + num2 + " -> " + total);
+				aide.setText("c'est a " + players[activePlayer].getName() + " de jouer");
 			}
 			else
 				System.out.println("ce n'est pas le moment de lancer les dés ! (" + players[activePlayer].getName() + " joue!)");
-		}
-		repaint();
+			}
+			repaint();
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		Direction dir = Direction.NORTH;
 		switch(e.getKeyChar()){
 		case '7':
-			dir = Direction.NORTH;
-			System.out.println(Direction.NORTH.name());
+			players[activePlayer].setRoadDir(Direction.NORTH);
 		break;
 		case '9':
-			dir = Direction.NORTH_EAST;
-			System.out.println(Direction.NORTH_EAST.name());
+			players[activePlayer].setRoadDir(Direction.NORTH_EAST);
 		break;
 		case '6':
-			dir = Direction.SOUTH_EAST;
-			System.out.println(Direction.SOUTH_EAST.name());
+			players[activePlayer].setRoadDir(Direction.SOUTH_EAST);
 		break;
 		case '3':
-			dir = Direction.SOUTH;
-			System.out.println(Direction.SOUTH.name());
+			players[activePlayer].setRoadDir(Direction.SOUTH);
 		break;
 		case '1':
-			dir = Direction.SOUTH_WEST;
-			System.out.println(Direction.SOUTH_WEST.name());
+			players[activePlayer].setRoadDir(Direction.SOUTH_WEST);
 		break;
 		case '4':
-			dir = Direction.NORTH_WEST;
-			System.out.println(Direction.NORTH_WEST.name());
+			players[activePlayer].setRoadDir(Direction.NORTH_WEST);
 		break;
 		}
-		modifiedHexa.setDirection(dir);
+		
 	}
 
 

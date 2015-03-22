@@ -24,11 +24,10 @@ public class Main {
 		jeton.initJetons();
 		GenerateTerrain terrain = new GenerateTerrain();
 		Player p1=new Player("Adrien (p1)", Color.RED);
-		Player p2=new Player("Jeff (pd)", Color.ORANGE);
+		Player p2=new Player("Jeff (p2)", Color.ORANGE);
 		Player [] players = new Player[2];
 		players[0]=p1;
 		players[1]=p2;
-		players[0].setActive(true);
 		int lim=0;
 		for (int q=min;q<=max;q++) {
 			for (int r = min; r <=max; r++) {

@@ -9,7 +9,7 @@ public class DataHexagon {
 	private Color color;
 	private int type;
 	private int jeton;
-	private final Color[] edgeColor;
+	private Color[] edgeColor;
 	private int direction;
 
 	public enum TypeHex {FOREST(4), PASTURE(4), FARMLAND(4), HILL(3), MOUNTAIN(3),DESERT(1), MARINA(9), SEA(4);
@@ -43,11 +43,19 @@ public class DataHexagon {
 		direction = dir.ordinal();
 	}
 	
-	public void setEdgeColor(Color color) {
+	public void setEdgeColor(Color[] color) {
+		this.edgeColor = color;
+	}
+	
+	public Color[] getEdgeColor() {
+		return edgeColor;
+	}
+	
+	public void setOneEdgeColor(Color color) {
 		edgeColor[direction] = color;
 	}
-
-	public Color getEdgeColor(Direction dir) {
+	
+	public Color getOneEdgeColor(Direction dir) {
 		return edgeColor[dir.ordinal()];
 	}
 
@@ -69,6 +77,7 @@ public class DataHexagon {
 	public void setColor(Color color){
 		this.color = color;
 	}
+
 
 
 

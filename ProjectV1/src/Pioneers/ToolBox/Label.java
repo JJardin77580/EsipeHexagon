@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 
 public class Label {
-	private final String text; 
+	private String text; 
 	private final int posX;
 	private final int posY;
 	
@@ -12,6 +12,10 @@ public class Label {
 		this.text = text;
 		this.posX = posX;
 		this.posY = posY;
+	}
+	
+	public void setText(String text){
+		this.text = text;
 	}
 	
 	public void drawText(Graphics g){

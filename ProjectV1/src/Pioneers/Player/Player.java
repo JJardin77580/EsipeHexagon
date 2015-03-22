@@ -1,7 +1,12 @@
 package Pioneers.Player;
 
+import hexalib.HexaGrid;
+import hexalib.Hexalib.Direction;
+
 import java.awt.Color;
 import java.util.ArrayList;
+
+import Pioneers.Hexagon.DataHexagon;
 
 public class Player {
 	private final String name;
@@ -11,6 +16,7 @@ public class Player {
 	private ArrayList<Colony> colony;
 	private ArrayList<Integer> listRessources;
 	private boolean active;
+	private Direction roadDir;
 	public enum Ressources{BOIS(0),BLE(0),ARGILE(0),MOUTON(0),PIERRE(0);
 		private int quantity;
 
@@ -32,16 +38,22 @@ public class Player {
 		this.color=color;
 		listRessources = new ArrayList<Integer>();
 		active = false;
+		road = new ArrayList<Road>();
+		roadDir = Direction.NORTH;
 	}
 	
 	public void addTown(){
 		town.add(new Town());
 	}
 	
-	public void addRoad(){
-		road.add(new Road());
+	public void addRoad(HexaGrid<DataHexagon> hexagrid, int q, int r){
+		road.add(new Road(hexagrid,q,r,color,roadDir));
 	}
-	
+
+	public void setRoadDir(Direction roadDir) {
+		this.roadDir = roadDir;
+	}
+
 	public void addColony(){
 		colony.add(new Colony());
 	}
@@ -62,7 +74,4 @@ public class Player {
 	public int getNbPoints(){
 		return colony.size()+(town.size()*2);
 	}
-	
-	
-
 }
