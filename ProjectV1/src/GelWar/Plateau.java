@@ -33,6 +33,8 @@ public class Plateau extends JPanel implements MouseListener{
 		Graphics2D g2 = (Graphics2D)g; 
 		super.paintComponent(g2);
 		hexagridView.DrawGrid(g2);
+		g2.setColor(this.players[currentplayer].getColor());
+		g2.drawString("Tour de " +this.players[currentplayer].getName(), 425, 100);
 	}
 
 

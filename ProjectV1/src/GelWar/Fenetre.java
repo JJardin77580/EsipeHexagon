@@ -2,21 +2,24 @@ package GelWar;
 
 import hexalib.HexaGrid;
 import hexalib.Hexalib.HexaGridView;
-
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.event.MouseEvent;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 
 public class Fenetre extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static int offsetX=500;
 	public  static int offsetY=400;
 	public Fenetre(HexaGridView<DataHexagon> hexaview,HexaGrid<DataHexagon> hexagrid,Player[] player) {             
-	
+		
+		
+		
+		
 		Plateau panel = new Plateau(hexaview,hexagrid,player);	 
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		JFrame frame = new JFrame("GelWAR");
