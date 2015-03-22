@@ -178,7 +178,6 @@ public int neighborR(int q, int r) {
 		public void drawHex(Graphics2D g2);
 		public void setDataString(String s);
 		public void setCenter(Point center);
-		
 	}
 
 	public interface HexagonRenderer<T> {
