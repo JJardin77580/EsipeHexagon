@@ -119,12 +119,10 @@ public int neighborR(int q, int r) {
 	}
 
 	public class HexaGridView<T> {
-
-
 		HexaModel<? extends T> model;
 		HexagonRenderer<? super T> renderer;
 		HashMap<Coordinates, HexagonView> hexaviews=new HashMap<>();
-
+		
 		public HexaGridView(HexaModel<? extends T> model, HexagonRenderer<? super T> renderer) {
 			this.model=model;
 			this.renderer=renderer;
@@ -178,7 +176,7 @@ public int neighborR(int q, int r) {
 		public void drawHex(Graphics2D g2);
 		public void setDataString(String s);
 		public void setCenter(Point center);
-		
+		public void drawPoint(Graphics2D g2,int x,int y,Color c);
 	}
 
 	public interface HexagonRenderer<T> {

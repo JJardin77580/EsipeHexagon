@@ -49,7 +49,6 @@ public class HexagonPanel implements HexagonView {
 		g2.fillPolygon(poly);
 		g2.setColor(Color.BLACK);
 		Stroke init = g2.getStroke();
-
 		//g2.drawPolygon(poly);
 		for (Direction d : Direction.values()) {
 			g2.setColor(Color.BLACK);
@@ -57,13 +56,9 @@ public class HexagonPanel implements HexagonView {
 			g2.setStroke(new BasicStroke(3));
 			if(colorEgde!=null){
 				g2.setColor(colorEgde);
-
 			}
-
-
 			switch(d) {
 			case NORTH:
-
 				g2.drawLine(cx[4], cy[4], cx[5], cy[5]);
 			case NORTH_EAST:
 				g2.drawLine(cx[5], cy[5], cx[0], cy[0]);
@@ -75,29 +70,29 @@ public class HexagonPanel implements HexagonView {
 				g2.drawLine(cx[2], cy[2], cx[3], cy[3]);
 			case NORTH_WEST:
 				g2.drawLine(cx[3], cy[3], cx[4], cy[4]);
-
 			}
-
-
 		}
-
-
 		if((center!=null)&&(dataString!=null)){
 			g2.setFont(new Font("arial",1 , 20));
 			g2.drawString(dataString, (int)center.x-7,(int)center.y);
 		}
-
 	}
 
+	
 	@Override
 	public void setDataString(String s) {
 		this.dataString=s;
-
 	}
-
+	
 	@Override
 	public void setCenter(Point center) {
 		this.center=center;	
+	}
+
+	@Override
+	public void drawPoint(Graphics2D g2, int x, int y, Color c) {
+	g2.setColor(c);
+	g2.drawOval(cx[x], cy[y], 5, 5);
 	}
 
 
