@@ -32,14 +32,14 @@ public class DataHexagon implements HexagonView{
 	public void setType(TypeHex type){
 		this.type = type.ordinal();
 		switch(type){
-			case FOREST:   color = Color.green; break;
-			case PASTURE:  color = Color.green.darker(); break;
-			case FARMLAND: color = Color.orange.darker().darker(); break;
-			case HILL:     color = Color.magenta; break;
-			case MOUNTAIN: color = Color.white; break;
-			case DESERT:   color = Color.yellow; break;
-			case MARINA:   color = Color.cyan; break;
-			case SEA:      color = Color.blue; break;
+			case FOREST:   color = Color.green; 					break;
+			case PASTURE:  color = Color.green.darker(); 			break;
+			case FARMLAND: color = Color.orange.darker().darker(); 	break;
+			case HILL:     color = Color.magenta; 					break;
+			case MOUNTAIN: color = Color.white; 					break;
+			case DESERT:   color = Color.yellow; 					break;
+			case MARINA:   color = Color.cyan; 						break;
+			case SEA:      color = Color.blue; 						break;
 		}
 	}
 	
