@@ -1,6 +1,9 @@
 package Pioneers.Player;
-
+/**
+ * 
+ * @author root
+ *
+ */
 public class Town {
-	
-	//nom + emplacement + nomber de base
+	//TO-DO pas le temps de le finir..
 }

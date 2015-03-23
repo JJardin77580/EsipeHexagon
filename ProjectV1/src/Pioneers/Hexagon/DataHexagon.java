@@ -1,11 +1,14 @@
 package Pioneers.Hexagon;
 
 import hexalib.Hexalib.Direction;
+import hexalib.Hexalib.HexagonView;
+import hexalib.Point;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 
 
-public class DataHexagon {
+public class DataHexagon implements HexagonView{
 	private Color color;
 	private int type;
 	private int jeton;
@@ -39,6 +42,7 @@ public class DataHexagon {
 			case SEA:      color = Color.blue; break;
 		}
 	}
+	
 	public void setDirection(Direction dir) {
 		direction = dir.ordinal();
 	}
@@ -47,16 +51,21 @@ public class DataHexagon {
 		this.edgeColor = color;
 	}
 	
-	public Color[] getEdgeColor() {
+	public Color[] getAllEdgeColor() {
 		return edgeColor;
 	}
 	
 	public void setOneEdgeColor(Color color) {
 		edgeColor[direction] = color;
 	}
+	@Override
+	public void setEdge(Direction edge, Color color) {
+		
+	}
 	
-	public Color getOneEdgeColor(Direction dir) {
-		return edgeColor[dir.ordinal()];
+	@Override 
+	public Color getEdgeColor(Direction edge) {
+		return edgeColor[edge.ordinal()];
 	}
 
 	public void setJeton(Integer jeton){
@@ -77,6 +86,17 @@ public class DataHexagon {
 	public void setColor(Color color){
 		this.color = color;
 	}
+
+
+
+	
+	
+	@Override public void setCx(int... cx) {}
+	@Override public void setCy(int... cy) {}
+	@Override public void drawHex(Graphics2D g2) {}
+	@Override public void setDataString(String s) {}
+	@Override public void setCenter(Point center) {}
+	@Override public void drawPoint(Graphics2D g2, int x, int y, Color c) {}
 
 
 

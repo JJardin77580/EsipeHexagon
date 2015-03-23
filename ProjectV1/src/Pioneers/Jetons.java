@@ -3,15 +3,21 @@ package Pioneers;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * 
+ * @author adrien
+ *
+ */
+
 public class Jetons {
-	private static ArrayList<CoupleVN> jetons;
+	private static ArrayList<CoupleVN> jeton;
 	
 	
 	public Jetons() {
-		jetons = new ArrayList<CoupleVN>();
+		jeton = new ArrayList<CoupleVN>();
 	}
 	
-	public void initJetons() {
+	public void init() {
 		int quantite=1;
 		for(int nombre = 2 ; nombre <= 12 ; nombre++){
 			if(nombre == 2 || nombre == 12)
@@ -19,21 +25,21 @@ public class Jetons {
 			else
 				quantite = 2;
 			if(nombre != 7)
-				jetons.add(new CoupleVN(quantite,nombre));
+				jeton.add(new CoupleVN(quantite,nombre));
 		}
 	}
 	
 	public int getJeton() {
-		if(jetons.size() < 1)
-			throw new IndexOutOfBoundsException();
+		if(jeton.size() < 1)
+			throw new IndexOutOfBoundsException("Erreur : plus de jetons disponible");
 		Random rand = new Random();
-		int index = rand.nextInt(jetons.size());
-		int value = jetons.get(index).getValeur();
-		if(jetons.get(index).getNombre() > 1)
-			jetons.get(index).removeOne();
+		int index = rand.nextInt(jeton.size());
+		int value = jeton.get(index).getValeur();
+		if(jeton.get(index).getNombre() > 1)
+			jeton.get(index).removeOne();
 		else {
-			jetons.get(index).removeOne();
-			jetons.remove(index);
+			jeton.get(index).removeOne();
+			jeton.remove(index);
 		}
 		return value;
 	}
