@@ -2,8 +2,9 @@ package hexalib;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
 import java.util.HashMap;
-import java.util.List;
+
 
 // use axial coordinate (r, q)
 // see http://www.redblobgames.com/grids/hexagons/
@@ -141,16 +142,18 @@ public int neighborR(int q, int r) {
 		}
 
 		public void DrawGrid(Graphics2D g2){
-			int lim=0;
+			
 			for (int q=model.getMinQ();q<=model.getMaxQ();q++) {
 				{
 					for(int r=model.getMinR();r<=model.getMaxR();r++){
-						lim=q+r;
-						if((lim>=model.getMinQ())&&(lim<=model.getMaxQ())){
+						
+					
 						HexagonView views=hexaviews.get(new Coordinates(q, r));
+						if(views!=null){
 						renderer.render(q, r, model.getData(q, r),views);
 						views.drawHex(g2);
 						}
+						
 					}
 				}
 			}
@@ -179,9 +182,14 @@ public int neighborR(int q, int r) {
 		public void drawPoint(Graphics2D g2,int x,int y,Color c);
 	}
 
+	
 	public interface HexagonRenderer<T> {
 		public void render(int q, int r, T data, HexagonView hexagonView);
 		public int getsize();
 		
+	}
+	
+	public interface GamePlayController{
+		public void dataInteracted(MouseEvent event);
 	}
 }

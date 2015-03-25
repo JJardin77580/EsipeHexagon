@@ -1,11 +1,9 @@
 package GelWar;
-
 import java.awt.Color;
 import java.util.Random;
 
 import hexalib.HexaGrid;
 import hexalib.HexagonPanel;
-import hexalib.Hexalib.Direction;
 import hexalib.Hexalib.HexaGridView;
 
 
@@ -25,7 +23,10 @@ public class Main {
 		players[0]=p;
 		players[1]=p2;
 		players[2]=p3;
-		hexaGrid.addObserver(new ObserverGamePlay(hexaGrid));
+		hexaGrid.addObserver((q,r)->{
+			render.render(q, r, hexaGrid.getData(q, r),hexagridview.getHexagonView(q, r) );
+		});
+		
 		int minscore=1;
 		int maxscore=15;
 		Random rand = new Random();	
@@ -39,11 +40,11 @@ public class Main {
 					DataHexagon data = new DataHexagon(score,current);
 					hexaGrid.setData(q, r,data);
 					hexagridview.addHexagonView(q, r, new HexagonPanel());
-					
-					//hexagridview.getHexagonView(q, r).setEdge(Direction.NORTH, Color.RED);
+
 				}}
 
 		}
+		@SuppressWarnings("unused")
 		Fenetre f=new Fenetre(hexagridview,hexaGrid,players);
 	}
 
