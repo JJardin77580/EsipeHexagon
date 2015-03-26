@@ -7,11 +7,11 @@ import hexalib.Point;
 import hexalib.Hexalib.HexagonRenderer;
 import hexalib.Hexalib.HexagonView;
 /**
- * Gère l'affichage d'un hexagone
+ * this class configure the display of an hexagon
  * @author adrien
  *
- * @param <T>
  */
+
 public class HexagonRender implements HexagonRenderer<DataHexagon> {
 	private int size;	
 	

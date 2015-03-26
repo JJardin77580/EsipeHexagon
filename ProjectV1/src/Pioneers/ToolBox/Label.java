@@ -2,7 +2,10 @@ package Pioneers.ToolBox;
 
 import java.awt.Graphics;
 
-
+/**
+ * @author adrien
+ * this class configures a label
+ */
 public class Label {
 	private String text; 
 	private final int posX;

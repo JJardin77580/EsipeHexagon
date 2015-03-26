@@ -6,10 +6,9 @@ import java.util.Random;
 import Pioneers.Hexagon.DataHexagon.TypeHex;
 
 /**
- * Génération du terrain en fonction des ressources disponnibles
+ * This class generate cases with available ressources. (gived by the TypeHex enum)
  * @author adrien
- *
- */
+ **/
 public class GenerateTerrain {
 	private final ArrayList<CoupleVN> cases;
 

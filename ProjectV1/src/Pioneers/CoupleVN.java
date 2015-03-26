@@ -1,5 +1,8 @@
 package Pioneers;
-
+/**
+ *This class link a value with a number.
+ * @author adrien
+ **/
 public class CoupleVN {
 	
 	private int nombre;

@@ -3,9 +3,12 @@ package Pioneers.Player;
 import java.awt.Color;
 
 import hexalib.HexaGrid;
-import hexalib.Hexalib.Direction;
 import Pioneers.Hexagon.DataHexagon;
 
+/**
+ * @author adrien
+ * this class generate a road on a new Hexagon.
+ */
 public class Road extends Player{
 	private final DataHexagon modifiedHexa;
 	private HexaGrid<DataHexagon> hexagrid;

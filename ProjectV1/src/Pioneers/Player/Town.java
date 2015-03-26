@@ -1,7 +1,7 @@
 package Pioneers.Player;
 /**
  * 
- * @author root
+ * @author adrien
  *
  */
 public class Town {

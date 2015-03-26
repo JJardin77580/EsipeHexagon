@@ -1,24 +1,22 @@
 package Pioneers;
 
+import java.awt.Container;
+import javax.swing.JFrame;
+
 import hexalib.HexaGrid;
 import hexalib.Hexalib.HexaGridView;
-
-import java.awt.Container;
-
-import javax.swing.JFrame;
 
 import Pioneers.Hexagon.DataHexagon;
 import Pioneers.Player.Player;
 /**
- * Initialise un fenetre
+ * this class create a windows and create a new panel.
  * @author adrien
- *
- */
+ **/
+
 public class Fenetre extends JFrame {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -2637624857469644263L;
 	public static int offsetX=300;
 	public  static int offsetY=300;
-	
 	
 	public Fenetre(HexaGridView<DataHexagon> hexaview,HexaGrid<DataHexagon> hexagrid,Player[] players) {  
 		Plateau panel = new Plateau(hexaview,hexagrid,players);

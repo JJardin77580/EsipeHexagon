@@ -21,7 +21,7 @@ public class Main {
 		HexagonRender render=new HexagonRender(30);
 		HexaGridView<DataHexagon> hexagridview= new HexaGridView<>(hexagonGrid,render);
 		GenerateTerrain terrain = new GenerateTerrain();
-		Jetons jeton = new Jetons();
+		Tokens jeton = new Tokens();
 		Player p1=new Player("Adrien (p1)", Color.RED);
 		Player p2=new Player("Jeff (p2)", Color.ORANGE);
 		Player [] players = new Player[2];
@@ -38,7 +38,7 @@ public class Main {
 				DataHexagon data = new DataHexagon();
 				if((q==min)||(q==max)||(r==min)||(r==max)||(lim==min)||(lim==max)){
 					data.setType(TypeHex.SEA);
-				} 
+				}
 				else if((lim>=hexagonGrid.getMinQ())&&(lim<=hexagonGrid.getMaxQ())){
 					int caseTerrain = terrain.getCase();
 					data.setType(TypeHex.values()[caseTerrain]);
@@ -50,6 +50,7 @@ public class Main {
 			}
 		}
 		Fenetre f=new Fenetre(hexagridview,hexagonGrid,players);
+		f.setEnabled(true);
 	}
 }
 

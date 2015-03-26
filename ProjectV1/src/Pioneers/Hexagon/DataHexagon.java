@@ -7,13 +7,17 @@ import hexalib.Point;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-
+/**
+ * @author adrien
+ * this class configures the data of an hexagon (his background/edge color, his type (TypeHex),
+ * his token, and the active direction for placing element (road, town...)
+ **/
 public class DataHexagon implements HexagonView{
 	private Color color;
 	private int type;
-	private int jeton;
+	private int token;
 	private Color[] edgeColor;
-	private int direction;
+	private int activeDirection;
 
 	public enum TypeHex {FOREST(4), PASTURE(4), FARMLAND(4), HILL(3), MOUNTAIN(3),DESERT(1), MARINA(9), SEA(4);
 	private final int capacity;
@@ -26,7 +30,7 @@ public class DataHexagon implements HexagonView{
 		edgeColor = new Color[6];
 		for(int i = 0 ; i < edgeColor.length ; i++)
 			edgeColor[i] = Color.black;
-		direction = 0;
+		activeDirection = 0;
 	}
 
 	public void setType(TypeHex type){
@@ -44,7 +48,7 @@ public class DataHexagon implements HexagonView{
 	}
 	
 	public void setDirection(Direction dir) {
-		direction = dir.ordinal();
+		activeDirection = dir.ordinal();
 	}
 	
 	public void setEdgeColor(Color[] color) {
@@ -56,11 +60,11 @@ public class DataHexagon implements HexagonView{
 	}
 	
 	public void setOneEdgeColor(Color color) {
-		edgeColor[direction] = color;
+		edgeColor[activeDirection] = color;
 	}
 	@Override
 	public void setEdge(Direction edge, Color color) {
-		
+		edgeColor[edge.ordinal()] = color;
 	}
 	
 	@Override 
@@ -69,10 +73,10 @@ public class DataHexagon implements HexagonView{
 	}
 
 	public void setJeton(Integer jeton){
-		this.jeton = jeton;
+		this.token = jeton;
 	}
 	public int getJeton(){
-		return jeton;
+		return token;
 	}
 
 	public int getType() {
@@ -86,10 +90,6 @@ public class DataHexagon implements HexagonView{
 	public void setColor(Color color){
 		this.color = color;
 	}
-
-
-
-	
 	
 	@Override public void setCx(int... cx) {}
 	@Override public void setCy(int... cy) {}
@@ -97,8 +97,5 @@ public class DataHexagon implements HexagonView{
 	@Override public void setDataString(String s) {}
 	@Override public void setCenter(Point center) {}
 	@Override public void drawPoint(Graphics2D g2, int x, int y, Color c) {}
-
-
-
 
 }

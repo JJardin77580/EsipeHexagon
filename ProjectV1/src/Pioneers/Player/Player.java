@@ -8,12 +8,9 @@ import java.util.ArrayList;
 
 import Pioneers.Hexagon.DataHexagon;
 /**
- * 
  * @author adrien
- * 
- * 
- *
- */
+ * this class allow configurations of a player
+ **/
 public class Player {
 	private final String name;
 	private final Color color;
