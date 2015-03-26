@@ -1,6 +1,9 @@
 package GelWar;
 
+import java.awt.Color;
+
 import hexalib.Coordinates;
+import hexalib.Hexalib.Direction;
 import hexalib.Hexalib.HexagonRenderer;
 import hexalib.Hexalib.HexagonView;
 import hexalib.Point;
@@ -44,6 +47,9 @@ public class HexagonRender implements HexagonRenderer<DataHexagon> {
 		hexagonView.setCenter(new Point(x, y, 0));
 		hexagonView.setColor(data.getPlayer().getColor());
 		hexagonView.setDataString((data.getScore().toString()));
+		for (Direction direction : data.getMirrors()) {
+			hexagonView.setEdge(direction, Color.red);
+		}
 	}
 	
 	@Override

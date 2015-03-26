@@ -2,13 +2,11 @@ package hexalib;
 
 import hexalib.Hexalib.Direction;
 import hexalib.Hexalib.HexagonView;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
-import java.awt.Stroke;
 import java.util.HashMap;
 
 public class HexagonPanel implements HexagonView {
@@ -39,6 +37,7 @@ public class HexagonPanel implements HexagonView {
 	public Color getColor() {
 		return this.color;
 	}
+
 	@Override
 	public Color getEdgeColor(Direction edge) {
 		return this.colorEdge.get(edge);
@@ -48,8 +47,6 @@ public class HexagonPanel implements HexagonView {
 		g2.setColor(this.color);
 		g2.fillPolygon(poly);
 		g2.setColor(Color.BLACK);
-		Stroke init = g2.getStroke();
-		//g2.drawPolygon(poly);
 		for (Direction d : Direction.values()) {
 			g2.setColor(Color.BLACK);
 			Color colorEgde=getEdgeColor(d);
@@ -78,12 +75,12 @@ public class HexagonPanel implements HexagonView {
 		}
 	}
 
-	
+
 	@Override
 	public void setDataString(String s) {
 		this.dataString=s;
 	}
-	
+
 	@Override
 	public void setCenter(Point center) {
 		this.center=center;	
@@ -91,8 +88,8 @@ public class HexagonPanel implements HexagonView {
 
 	@Override
 	public void drawPoint(Graphics2D g2, int x, int y, Color c) {
-	g2.setColor(c);
-	g2.drawOval(cx[x], cy[y], 5, 5);
+		g2.setColor(c);
+		g2.drawOval(cx[x], cy[y], 5, 5);
 	}
 
 
