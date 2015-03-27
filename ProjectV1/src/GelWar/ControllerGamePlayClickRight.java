@@ -114,7 +114,7 @@ public class ControllerGamePlayClickRight implements GamePlayController{
 						if((lim>=hexagrid.getMinQ())&&(lim<=hexagrid.getMaxQ())){
 							if((hexagrid.getData(qvoisine, rvoisine).getPlayer()==data.getPlayer())&&(!data.getMirrors().contains(direction))){
 								DataHexagon datavoisine=hexagrid.getData(qvoisine, rvoisine);
-								datavoisine.AddMirrors(direction.setOpposite());
+								datavoisine.AddMirrors(direction.getOpposite());
 								System.out.println("here");
 								data.AddMirrors(direction);
 								hexagrid.setData(c.q, c.r, data);

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class HexaGrid<T> implements HexaModel<T> {
-
 	private final int minQ;
 	private final int maxQ;
 	private final int minR;

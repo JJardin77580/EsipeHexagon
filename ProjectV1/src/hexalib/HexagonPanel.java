@@ -10,8 +10,8 @@ import java.awt.Polygon;
 import java.util.HashMap;
 
 public class HexagonPanel implements HexagonView {
-	private  Color color=Color.blue;
-	private HashMap<Direction, Color> colorEdge= new HashMap<>();
+	private  Color color;
+	private final HashMap<Direction, Color> colorEdge= new HashMap<>();
 	private int cx[];
 	private int cy[];
 	private Point center;

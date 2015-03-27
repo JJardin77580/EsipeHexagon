@@ -31,7 +31,7 @@ public interface Hexalib {
 			}
 		}
 		
-		public Direction setOpposite(){
+		public Direction getOpposite(){
 			switch(this){
 			case NORTH:
 				return SOUTH;
@@ -130,6 +130,7 @@ public interface Hexalib {
 		public T getData(int q, int r);
 		public void addObserver(ModelObserver observer);
 		public void setData(int q,int r,T data);
+		public void notifyAllObserver(int q, int r );
 
 	}
 

@@ -1,8 +1,8 @@
 package hexalib;
 
 public class Coordinates {
-	public int q;
-	public int r;
+	public final int q;
+	public final int r;
 	
 	public Coordinates(int q,int r) {
 		this.q=q;
